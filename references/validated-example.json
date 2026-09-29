@@ -1,0 +1,321 @@
+{
+  "schema_version": "1.9",
+  "case_id": "sex-lessons-ep3-fake-moaning",
+  "scope": {
+    "kind": "pre_paywall",
+    "episodes": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  },
+  "selected_opening": {
+    "candidate_id": "opening-fake-moaning",
+    "source_video": "/Users/jwstaff/Downloads/source/videos/EP3.mp4",
+    "episode": 3,
+    "start": 26.5,
+    "end": 47.14,
+    "context_gap": "none"
+  },
+  "cold_open_eligibility": {
+    "evaluated_after_opening_locked": true,
+    "eligible": true,
+    "reason_code": "eligible",
+    "reason": "开头之前存在与假演直接相关的受辱、冲突和临时合作剧情，能够从自然场景入口顺播追上开头并在开头后干净恢复，同时增加情绪和信息价值。",
+    "checks": {
+      "prior_context_exists": true,
+      "causal_context_exists": true,
+      "natural_entry_exists": true,
+      "clean_catchup_exists": true,
+      "adds_viewing_value": true
+    }
+  },
+  "variants": [
+    {
+      "id": "continuous",
+      "target_duration": 150,
+      "opening_headline": {
+        "lines": [
+          "HER ARCH-NEMESIS BECAME",
+          "HER INSTRUCTOR IN DESIRE...",
+          "EVERY LESSON PUSHED HER CLOSER TO LOSING CONTROL."
+        ],
+        "generation": "automatic_final",
+        "generation_stage": "after_story_ranges_locked",
+        "purpose": "retention_hook",
+        "rationale": "开头对白已经建立敌对关系和教学处境，字幕承诺欲望升级以增强留存。",
+        "affects_range_selection": false,
+        "position": "top_center",
+        "background": "none",
+        "design_mode": "automatic_scene_adaptive",
+        "sample_window": 4.0,
+        "base_color": "#F7F7F4",
+        "accent_color": "#F4C542",
+        "accent_target": "line_3",
+        "outline": "light_black",
+        "qa": {
+          "readability_passed": true,
+          "subject_overlap_passed": true,
+          "source_text_overlap_passed": true,
+          "fallback_used": false
+        },
+        "hold_duration": 3.0,
+        "fade_duration": 1.0
+      },
+      "end_hold": {
+        "kind": "freeze_last_frame",
+        "duration": 1.0,
+        "visual": "shake",
+        "audio": {
+          "kind": "impact_clip",
+          "source_video": "/Users/jwstaff/Downloads/source/videos/EP3.mp4",
+          "start": 123.56,
+          "end": 124.56,
+          "gain": 1.0,
+          "speed": 1.0,
+          "contains_speech": false,
+          "overlaps_story_tail": false
+        }
+      },
+      "ranges": [
+        {
+          "source_video": "/Users/jwstaff/Downloads/source/videos/EP3.mp4",
+          "episode": 3,
+          "start": 26.5,
+          "end": 47.14,
+          "role": "opening_window",
+          "entry_reason": "直接从露骨假叫床进入。",
+          "exit_reason": "假演揭示和凯西无经验的反应已经成立。"
+        },
+        {
+          "source_video": "/Users/jwstaff/Downloads/source/videos/EP3.mp4",
+          "episode": 3,
+          "start": 47.14,
+          "end": 124.56,
+          "role": "continuous_story",
+          "entry_reason": "从开头窗口之后继续原剧情。",
+          "exit_reason": "保留到本集结尾。"
+        },
+        {
+          "source_video": "/Users/jwstaff/Downloads/source/videos/EP4.mp4",
+          "episode": 4,
+          "start": 0.0,
+          "end": 54.3,
+          "role": "ending_hook",
+          "entry_reason": "顺接已经建立的性爱教学契约。",
+          "exit_reason": "停在掌心吻已经开始但尚未完成的位置。"
+        }
+      ],
+      "ending_hook": "凯西开始按要求亲吻亚瑟的手掌。",
+      "video_checks": ["清理 EP3 到 EP4 之间的源片短黑场。"]
+    },
+    {
+      "id": "cold_open",
+      "target_duration": 150,
+      "opening_headline": {
+        "lines": [
+          "HER ARCH-NEMESIS BECAME",
+          "HER INSTRUCTOR IN DESIRE...",
+          "EVERY LESSON PUSHED HER CLOSER TO LOSING CONTROL."
+        ],
+        "generation": "automatic_final",
+        "generation_stage": "after_story_ranges_locked",
+        "purpose": "retention_hook",
+        "rationale": "开头对白已经建立敌对关系和教学处境，字幕承诺欲望升级以增强留存。",
+        "affects_range_selection": false,
+        "position": "top_center",
+        "background": "none",
+        "design_mode": "automatic_scene_adaptive",
+        "sample_window": 4.0,
+        "base_color": "#F7F7F4",
+        "accent_color": "#F4C542",
+        "accent_target": "line_3",
+        "outline": "light_black",
+        "qa": {
+          "readability_passed": true,
+          "subject_overlap_passed": true,
+          "source_text_overlap_passed": true,
+          "fallback_used": false
+        },
+        "hold_duration": 3.0,
+        "fade_duration": 1.0
+      },
+      "reset_transition": {
+        "kind": "freeze_then_question_card_then_rewind",
+        "freeze": {
+          "duration": 0.8,
+          "visual": "static",
+          "audio": "silence"
+        },
+        "card": {
+          "duration": 2.0,
+          "background": "black",
+          "audio": "silence",
+          "text": {
+            "line_1": "HOW DID SHE",
+            "line_2": "END UP HERE?"
+          },
+          "design": "two_line_centered"
+        },
+        "rewind": {
+          "duration": 1.0,
+          "source_role": "reset_context",
+          "coverage": "full_range",
+          "audio": "rewind_sfx",
+          "landing": "first_frame",
+          "resume": "second_frame"
+        }
+      },
+      "end_hold": {
+        "kind": "freeze_last_frame",
+        "duration": 1.0,
+        "visual": "shake",
+        "audio": {
+          "kind": "impact_clip",
+          "source_video": "/Users/jwstaff/Downloads/source/videos/EP3.mp4",
+          "start": 123.56,
+          "end": 124.56,
+          "gain": 1.0,
+          "speed": 1.0,
+          "contains_speech": false,
+          "overlaps_story_tail": false
+        }
+      },
+      "context_entry_decision": {
+        "selection_rule": "best_narrative_arc_covering_full_causal_chain",
+        "hook_question": "为什么凯西会和亚瑟在房间里假装发生关系？",
+        "causal_chain": [
+          {
+            "type": "direct_cause",
+            "beat": "亚瑟提议用假叫床反击门外的挑衅者"
+          },
+          {
+            "type": "motivation",
+            "beat": "凯西受辱后想让门外的人相信她已经反击成功"
+          },
+          {
+            "type": "relationship_context",
+            "beat": "凯西与亚瑟彼此敌对，却被迫临时合作"
+          }
+        ],
+        "selected_entry": "EP3 场景开始：凯西受辱后回到房间并与亚瑟冲突",
+        "selection_reason": "场景起点比最晚完整入口多建立凯西受辱后的情绪、双方敌对关系和被迫合作的变化，使假演开头成为行动与情绪的双重兑现。",
+        "narrative_unit": "凯西情绪失控、女配追上门、亚瑟提出假演反击，完整追到假叫床开头",
+        "viewer_evidence": {
+          "status": "video_verified",
+          "dialogue_evidence": [
+            "ASR 已确认凯西受辱后的反击对白、亚瑟提出假演的对白和开头中的揭示对白。"
+          ],
+          "visual_evidence": [
+            "视频已确认凯西回到房间、双方冲突升级、女配追到门外以及假演动作。"
+          ],
+          "excluded_script_information": [
+            "人物小传和心理说明未用于判断入口是否成立。"
+          ]
+        },
+        "compared_entries": [
+          {
+            "entry": "EP3 亚瑟提出用假演反击",
+            "boundary_type": "latest_complete",
+            "causal_chain_complete": true,
+            "story_arc": "能说明假演的直接原因，但冲突和情绪已经发生，独立观看更像解释补丁。",
+            "information_gained": "说明假演提议和当前动作的直接原因。",
+            "retention_beats": [
+              "亚瑟提出假演反击"
+            ],
+            "dead_zone_risk": "low",
+            "emotional_build": false,
+            "return_effect": "很快撞回开头，只有信息闭环。",
+            "selected": false
+          },
+          {
+            "entry": "EP3 场景开始：凯西受辱后回到房间并与亚瑟冲突",
+            "boundary_type": "emotional_or_relationship_setup",
+            "causal_chain_complete": true,
+            "story_arc": "完整建立受辱、冲突、临时合作、反击升级和假演行动。",
+            "information_gained": "建立凯西受辱、双方冲突、女配追来和临时合作的完整关系变化。",
+            "retention_beats": [
+              "凯西受辱后失控",
+              "女配追到门外继续挑衅",
+              "亚瑟提出假演反击"
+            ],
+            "dead_zone_risk": "none",
+            "emotional_build": true,
+            "return_effect": "回到开头时同时兑现凯西的反击情绪和两人的合作变化。",
+            "selected": true
+          }
+        ],
+        "forward_check": {
+          "standalone_entry": true,
+          "causal_chain_complete": true,
+          "narrative_arc_complete": true,
+          "emotional_investment_before_catchup": true,
+          "change_before_catchup": true,
+          "clean_opening_echo_and_resume": true
+        },
+        "post_opening_stop": {
+          "rule": "first_new_suspense_after_payoff",
+          "description": "假演爆点完成后，停在新的亲密教学要求即将开始"
+        },
+        "rejected_later_entries": [
+          {
+            "entry": "EP3 女配已经来到门外之后",
+            "reason": "从冲突中间进入，只剩假演前的解释，缺少凯西失控与女配追来的因果"
+          }
+        ]
+      },
+      "ranges": [
+        {
+          "source_video": "/Users/jwstaff/Downloads/source/videos/EP3.mp4",
+          "episode": 3,
+          "start": 26.5,
+          "end": 47.14,
+          "role": "opening_window",
+          "entry_reason": "先用假叫床双钩作为开头。",
+          "exit_reason": "假演揭示和凯西无经验的反应已经成立。"
+        },
+        {
+          "source_video": "/Users/jwstaff/Downloads/source/videos/EP3.mp4",
+          "episode": 3,
+          "start": 0.0,
+          "end": 26.5,
+          "role": "reset_context",
+          "entry_reason": "从场景起点进入，完整建立凯西失控、女配追来和假演反击。",
+          "exit_reason": "前情已经追到假叫床开始前。"
+        },
+        {
+          "source_video": "/Users/jwstaff/Downloads/source/videos/EP3.mp4",
+          "episode": 3,
+          "start": 43.8,
+          "end": 47.14,
+          "role": "opening_echo",
+          "echo_type": "last_action",
+          "echo_content": "凯西在假演揭示后露出无经验的反应",
+          "entry_reason": "前情追上后只重复冷开结尾的完整反应，确认回到当前时点。",
+          "exit_reason": "最后一个动作完成，下一段新剧情可以自然开始。"
+        },
+        {
+          "source_video": "/Users/jwstaff/Downloads/source/videos/EP3.mp4",
+          "episode": 3,
+          "start": 47.14,
+          "end": 124.56,
+          "role": "resume_after_opening",
+          "entry_reason": "重复冷开最后一个动作后，从揭示后的新剧情恢复。",
+          "exit_reason": "保留到本集结尾。"
+        },
+        {
+          "source_video": "/Users/jwstaff/Downloads/source/videos/EP4.mp4",
+          "episode": 4,
+          "start": 0.0,
+          "end": 25.5,
+          "role": "ending_hook",
+          "entry_reason": "顺接教学契约。",
+          "exit_reason": "停在凯西诱惑示范和亚瑟震惊反应。"
+        }
+      ],
+      "ending_hook": "凯西问 Like this, Master Arthur，亚瑟震惊。",
+      "context_added": [
+        "凯西因被羞辱而失控。",
+        "女配追到房间继续挑衅。",
+        "假叫床是亚瑟临时想到的反击。"
+      ],
+      "video_checks": ["确认开头标题完整显示 3.0 秒并在随后 1.0 秒淡出。", "确认冷开回接版在开头后有 0.8 秒静帧、2.0 秒黑屏问题字幕卡和 1.0 秒完整前情倒放。", "确认倒放落回前情第一帧并从第二帧正常恢复。", "确认前情追上后只重复冷开最后一个完整动作一次，并自然接入新剧情。", "清理 EP3 到 EP4 之间的源片短黑场。"]
+    }
+  ]
+}
