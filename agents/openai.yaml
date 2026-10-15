@@ -1,4 +1,4 @@
 interface:
   display_name: "短剧广告粗剪规划"
   short_description: "MediaKit做ASR，Codex与本地工具生成短剧广告粗剪"
-  default_prompt: "使用 $short-drama-ad-planner 从剧本和剧集视频中选择三个强开头，使用 MediaKit Cloud ASR 建立可验证的对白时间索引，再用本地 FFmpeg/FFprobe 和 macOS 包装脚本抽帧与渲染，为每个开头生成连续版，并仅在可行性判断通过时生成冷开回接版粗剪。"
+  default_prompt: "使用 $short-drama-ad-planner，开始前先问我选几个开头、是否开启冷开版；已经说明的选项不重复问，未说明时等待回答后再处理。明确按默认时选 3 个开头并开启冷开。使用 MediaKit Cloud ASR 建立可验证的对白时间索引，再用本地 FFmpeg/FFprobe 和 macOS 包装脚本抽帧与渲染。每个开头生成连续版，仅在冷开已开启且可行性判断通过时增加冷开回接版粗剪。"

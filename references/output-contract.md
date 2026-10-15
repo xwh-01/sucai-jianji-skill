@@ -18,7 +18,7 @@
 
 ### `selected-openings.json`
 
-保存恰好 3 个已锁定开头的 ID、锚点、开头窗口、真实时间证据、上下文缺口和待视频检查项。
+保存恰好 N 个已锁定开头的 ID、锚点、开头窗口、真实时间证据、上下文缺口和待视频检查项。N 来自运行配置 `opening_count`，默认 3；下方为默认数量示例。
 
 ```json
 {
@@ -30,15 +30,15 @@
 }
 ```
 
-数组长度必须为 3，且三个候选不能属于同一个重叠事件窗口。完整候选内容可直接内嵌，或通过 `candidate_id` 引用 `opening-candidates.json`。
+数组长度必须为 N，且各候选不能属于同一个重叠事件窗口。完整候选内容可直接内嵌，或通过 `candidate_id` 引用 `opening-candidates.json`。
 
 ### 每个开头的子目录
 
-为三个选中开头分别建立以候选 ID 命名的子目录。每个子目录保存一份 `selected-opening.json`、一份 `edit-plan.json`、一条连续版粗剪、通过可行性判断时再增加一条冷开回接版粗剪，以及独立审阅记录。`edit-plan.json` 仍只描述当前子目录对应的一个开头，并单独运行校验器。
+为 N 个选中开头分别建立以候选 ID 命名的子目录。每个子目录保存一份 `selected-opening.json`、一份 `edit-plan.json`、一条连续版粗剪、冷开已开启且通过可行性判断时再增加一条冷开回接版粗剪，以及独立审阅记录。`edit-plan.json` 仍只描述当前子目录对应的一个开头，并单独运行校验器。
 
 ### `edit-plan.json`
 
-下面仅展示字段结构，空 `ranges`、空事件清单和示意文字不构成可校验计划，不能原样提交。[validated-example.json](validated-example.json) 为旧版历史案例，缺少新版覆盖证据，不能直接通过当前校验；可运行的合成结构示例见 `scripts/test_validate_edit_plan.py`。实际执行必须使用当前项目证据，不复制案例剧情或核查结果。
+下面仅展示字段结构，空 `ranges`、空事件清单和示意文字不构成可校验计划，不能原样提交。[validated-example.json](validated-example.json) 为旧版历史案例，缺少新版覆盖证据，不能直接通过当前校验；可运行的合成结构示例见 `tests/test_validate_edit_plan.py`（旧测试命令仍兼容）。实际执行必须使用当前项目证据，不复制案例剧情或核查结果。
 
 ```json
 {
@@ -286,7 +286,22 @@
 - `no_clean_catchup`
 - `no_added_value`
 
-`eligible: true` 时，五个 `checks` 必须全部为 `true`，`variants` 必须同时包含 `continuous` 和 `cold_open`。`eligible: false` 时，`reason_code` 必须对应至少一个失败检查，`variants` 只能包含 `continuous`；不得输出空壳冷开回接版，也不得为了使其成立而替换开头。
+开启冷开时：`eligible: true` 时，五个 `checks` 必须全部为 `true`，`variants` 必须同时包含 `continuous` 和 `cold_open`。`eligible: false` 时，`reason_code` 必须对应至少一个失败检查，`variants` 只能包含 `continuous`；不得输出空壳冷开回接版，也不得为了使其成立而替换开头。
+
+计划顶层 `cold_open_enabled` 为布尔值，省略时按 `true` 兼容旧计划，受管运行中必须与运行配置一致。用户关闭冷开时写入如下字段，`variants` 只含 `continuous`；此处不做五项判断，不得混入 `eligible`、`checks` 或额外字段：
+
+```json
+{
+  "cold_open_enabled": false,
+  "cold_open_eligibility": {
+    "status": "not_evaluated",
+    "reason_code": "disabled_by_user",
+    "reason": "用户选择只生成连续版。"
+  }
+}
+```
+
+此为字段片段，不是完整计划。关闭冷开不免除连续版的边界、标题、片尾和声画验收。
 
 每个 `ranges` 元素必须包含：
 
@@ -356,7 +371,7 @@
 - 所有实际生成版本的尾钩。
 - 实际检查过的连接点。
 - 黑场、重复、动作中断或工具限制。
-- 当前开头供人工观看的 1 至 2 个本地视频路径；根目录汇总报告列出三个开头实际生成的全部 3 至 6 条视频。
+- 当前开头供人工观看的 1 至 2 个本地视频路径；根目录汇总报告列出 N 个开头实际生成的全部视频：关闭冷开共 N 条，开启冷开共 N 至 2N 条。
 
 ### `boundary-review/boundary-refinement.json`
 
